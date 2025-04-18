@@ -1,6 +1,10 @@
 from io import BytesIO
 from pdfminer.high_level import extract_text_to_fp
 from pdfminer.layout import LAParams
+import logging
+
+# Suppress pdfminer warnings
+logging.getLogger("pdfminer").setLevel(logging.ERROR)
 
 def extract_text(uploaded_file):
     """Extracts text from the uploaded PDF file using pdfminer.six."""
